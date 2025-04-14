@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Admin Dashboard</title>
-    </head>
-    <body>
-        <x-app-layout>
-        </x-app-layout>
-
-    </body>
+  <head> 
+    @include('admin.css')
+  </head>
+  <body>
+    @include('admin.header')
+    <div class="d-flex align-items-stretch">
+      @include('admin.sidebar')
+      @include('admin.body')
+      @include('admin.footer')
+    </div>
+  </body>
 </html>
