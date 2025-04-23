@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        @include('home.css')
-    </head>
+<head>
+    @include('home.css')
+</head>
 
-    <body>
+<body class="gameverse-theme">
 
     @include('home.header')
     @include('home.main_banner')
     @include('home.categories')
-    @include('home.book')
+    @include('home.games')
+    @include('home.special_offers')
     @include('home.footer')
-    
-    
-    
 
-    
-
-    
-    </body>
+</body>
 </html>
