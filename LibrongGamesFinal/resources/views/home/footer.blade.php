@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="footer-about">
-                    <img src="assets/images/gameverse-logo-white.png" alt="GameVerse" class="footer-logo">
+                    <img src="assets/images/LibrongGames-logo-white.png" alt="LibrongGames" class="footer-logo">
                     <p>Your ultimate destination for discovering and purchasing the latest and greatest video games.</p>
                     <div class="social-links">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -44,7 +44,7 @@
                 <div class="footer-links">
                     <h5>About</h5>
                     <ul>
-                        <li><a href="#">About GameVerse</a></li>
+                        <li><a href="#">About LibrongGames</a></li>
                         <li><a href="#">Jobs</a></li>
                         <li><a href="#">Partnership</a></li>
                         <li><a href="#">Press</a></li>
@@ -67,7 +67,7 @@
             
             <div class="col-lg-12">
                 <div class="copyright">
-                    <p>Copyright © 2025 <a href="#">GameVerse</a>. All rights reserved.</p>
+                    <p>Copyright © 2025 <a href="#">LibrongGames</a>. All rights reserved.</p>
                 </div>
             </div>
         </div>

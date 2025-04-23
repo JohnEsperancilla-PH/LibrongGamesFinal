@@ -10,5 +10,6 @@
       @include('admin.body')
       @include('admin.footer')
     </div>
+    <script src="{{ asset('js/sessionTimeout.js') }}"></script>
   </body>
 </html>

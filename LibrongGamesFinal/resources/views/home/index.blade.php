@@ -5,7 +5,7 @@
     @include('home.css')
 </head>
 
-<body class="gameverse-theme">
+<body class="LibrongGames-theme">
 
     @include('home.header')
     @include('home.main_banner')

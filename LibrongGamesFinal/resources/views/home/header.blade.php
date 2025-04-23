@@ -19,7 +19,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <img src="assets/images/gameverse-logo.png" alt="GameVerse">
+                        <img src="assets/images/LibrongGames-logo.png" alt="LibrongGames">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->

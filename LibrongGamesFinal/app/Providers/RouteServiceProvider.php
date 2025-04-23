@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,18 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard';
+
+    /**
+     * Get the redirect path based on user type.
+     */
+    public static function redirectTo()
+    {
+        if (auth()->check()) {
+            $userType = auth()->user()->usertype;
+            return $userType === 'admin' ? '/admin' : '/dashboard';
+        }
+        return self::HOME;
+    }
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.

@@ -63,5 +63,19 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'access-admin' => \App\Http\Middleware\CheckAdmin::class,
+    ];
+
+    /**
+     * The application's route middleware.
+     *
+     * These middleware may be assigned to groups or used individually.
+     *
+     * @var array<string, class-string|string>
+     */
+    protected $routeMiddleware = [
+        // ... existing code ...
+        'ensure-logged-out' => \App\Http\Middleware\EnsureLoggedOut::class,
+        'access-user' => \App\Http\Middleware\CheckUser::class,
     ];
 }

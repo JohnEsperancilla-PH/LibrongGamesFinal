@@ -1,5 +1,5 @@
 /* 
-   GameVerse - Steam-like Game Marketplace Theme
+   LibrongGames - Steam-like Game Marketplace Theme
    Based on the original template structure
 */
 
@@ -16,7 +16,7 @@
     --hover-bg: #1a3749;
   }
   
-  body.gameverse-theme {
+  body.LibrongGames-theme {
     font-family: 'Roboto', sans-serif;
     background-color: var(--secondary-color);
     color: var(--text-color);

@@ -15,17 +15,43 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-route::get('/',[HomeController::class, 'index']);
+Route::get('/', function () {
+    return redirect('/hello');
+});
 
+Route::get('/login', function () {
+    return redirect('/hello');
+})->name('login');
 
+Route::get('/hello', function () {
+    return view('auth.login');
+})->middleware('ensure-logged-out');
+
+// Login POST route for form submission
+Route::post('/login', [\Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::class, 'store'])
+    ->middleware(['web', 'guest']);
+
+// User routes
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 });
 
-route::get('/home',[AdminController::class, 'index']);
+// Admin routes
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+    'access-admin'
+])->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+});
+
+// Logout route
+Route::get('/logout', function () {
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect('/hello');
+})->name('manual-logout');
