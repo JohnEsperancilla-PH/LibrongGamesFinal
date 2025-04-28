@@ -10,8 +10,10 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use App\Models\User;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -39,11 +41,15 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         // Handle post-login redirection based on user type
-        Fortify::authenticateUsing(function (Request $request) {
-            $user = \App\Models\User::where('email', $request->email)->first();
-
-            if ($user && \Illuminate\Support\Facades\Hash::check($request->password, $user->password)) {
-                // No need for redirection handling here, as it's handled by the 'home' config
+        Fortify::authenticateUsing(function ($request) {
+            $user = User::where('email', $request->email)->first();
+            
+            if ($user && Hash::check($request->password, $user->password)) {
+                if ($user->usertype === 'admin') {
+                    $request->session()->put('intended', route('admin.index'));
+                } else {
+                    $request->session()->put('intended', route('dashboard'));
+                }
                 return $user;
             }
         });

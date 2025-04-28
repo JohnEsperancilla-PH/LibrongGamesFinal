@@ -190,8 +190,8 @@
                 Sign in to access your LibrongGames account to browse the store, access your library, and more.
             </div>
             
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+            <form method="POST" action="{{ url('/login') }}">
+            @csrf
                 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
